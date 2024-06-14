@@ -1,0 +1,98 @@
+---
+author: DixieCyanide
+main: ${project.groupId}.${project.artifactId}.${project.name}
+name: ${project.name}
+version: ${project.version}
+api-version: '1.13'
+depend:
+softdepend:
+  - LuckPerms
+commands:
+  vote:
+    description: Information about plugin
+    usage: /vote
+    aliases:
+      - vote
+      - rvote
+    permission: rvote
+  vote-restart:
+    description: Starts a vote for server restart
+    usage: /vote-restart
+    aliases:
+      - vote-restart
+      - rvote-restart
+    permission: rvote.vote
+  vote-positive:
+    description: Vote in favor of restart
+    usage: /vote-positive
+    aliases:
+      - vote-positive
+      - vote-pos
+      - rvote-positive
+      - rvote-pos
+    permission: rvote.vote.positive
+  vote-negative:
+    description: Vote against restart
+    usage: /vote-negative
+    aliases:
+      - vote-negative
+      - vote-neg
+      - rvote-negative
+      - rvote-neg
+    permission: rvote.vote.negative
+  vote-reload:
+    description: Reload plugin
+    usage: /vote-reload
+    aliases:
+      - vote-reload
+      - rvote-reload
+    permission: rvote.reload
+  vote-test:
+    description: Start a fake vote
+    usage: /vote-test
+    aliases:
+      - vote-test
+      - rvote-test
+    permission: rvote.test
+  vote-stop:
+    description: Stops current vote
+    usage: /vote-stop
+    aliases:
+      - vote-stop
+    permission: rvote.stop
+permissions:
+  rvote.*:
+    description: Wildcard permission
+    children:
+      rvote: true
+      rvote.vote: true
+      rvote.vote.positive: true
+      rvote.vote.negative: true
+      rvote.reload: true
+      rvote.test: true
+      rvote.stop: true
+  rvote.vote.*:
+    description: Vote start and participation
+    children:
+      rvote.vote: true
+      rvote.vote.positive: true
+      rvote.vote.negative: true
+  rvote.vote:
+    description: Start a vote permission
+  rvote.vote.positive:
+    description: Vote in favor permission
+  rvote.vote.negative:
+    description: Vote against permission (disable for extra comme servers)
+  rvote.admin.*:
+    description: Permissions for staff members
+    children:
+      rvote.reload: true
+      rvote.test: true
+      rvote.stop: true
+  rvote.reload:
+    description: Plugin reload permission
+  rvote.test:
+    description: Fake vote permission
+  rvote.stop:
+    description: Stop current vote
+

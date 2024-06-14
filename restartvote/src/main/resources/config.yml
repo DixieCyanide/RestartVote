@@ -1,0 +1,4 @@
+# Vote duration in sevonds
+VoteDuration: 180
+# Minimal percent of players to vote in favor of restart for it to happen
+Threshold: 50
