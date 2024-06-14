@@ -36,13 +36,13 @@ import java.util.UUID;
 public class Utils {
     public static Integer getEligiblePlayerCount() {
         Integer count = 0;
-        if (Bukkit.getPluginManager().getPlugin("LuckPerms") != null) {
-            for (Player p : Bukkit.getOnlinePlayers()) {
-                if (p.hasPermission("rvote.vote.*") || p.isOp()) {
-                    count += 1;
-                }
-            } 
-        } else {
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            if (p.hasPermission("rvote.vote.*")) {
+                count += 1;
+            }
+        }
+        
+        if (count == 0) {
             count = Bukkit.getOnlinePlayers().size();
         }
 
