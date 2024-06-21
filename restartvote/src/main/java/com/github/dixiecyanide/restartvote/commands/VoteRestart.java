@@ -46,7 +46,7 @@ public class VoteRestart implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!sender.hasPermission("rvote.restart") && !sender.isOp()) {
+        if (!sender.hasPermission("rvote.vote") && !sender.isOp()) {
             return false;
         }
 
